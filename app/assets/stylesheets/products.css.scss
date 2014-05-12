@@ -1,0 +1,56 @@
+// Place all the styles related to the Products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+  @import "bootstrap";
+	
+input{
+	border-radius: 5px;
+	padding: 5px;
+}
+body{
+	background: -webkit-linear-gradient(top, rgba(242,246,248,1) 0%,rgba(216,225,231,1) 50%,rgba(181,198,208,1) 100%,rgba(224,239,249,1) 100%); /* Chrome10+,Safari5.1+ */
+	height: 800px;
+	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+}
+h1{
+	color: #0B0B61;
+	font-size: 350%;
+}
+h2{
+	color: #0B0B61;
+}
+#com{
+	border:hidden;
+	border-radius: 10px;
+	padding: 5px 10px 0px 20px;
+	background-color: #F2F2F2;
+	overflow: scroll;
+	height: 200px;
+};
+#new_product{
+	text-align: left;
+	margin-bottom: 2%;
+}
+.edit_product{
+	text-align: left;
+}
+input{
+	margin-bottom:2%;
+}
+textarea{
+	margin-bottom:2%;
+}
+select{
+	margin-bottom:2%;
+}
+textarea{
+	border-radius: 10px;
+	border:solid;
+	border-width: 1px;
+	border-color: grey;
+	width: 500px;
+}
+#new_comment{
+	text-align: center;
+}
+

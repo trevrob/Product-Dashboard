@@ -1,0 +1,30 @@
+<html>
+<head>
+	<title>Create Product</title>
+</head>
+<body>
+	<div class="row">
+		<div class="col-md-4">
+		</div>
+		<div style='text-align:center' class="col-md-4">
+			<h1>New Product</h1>
+				<%= simple_form_for @product do |f| %>
+				<%= f.input :name %>
+				<%= f.input :description %>
+				<%= f.input :pricing, :hint => "prices should be in USD" %>
+				<%= f.association :category, :include_blank => false %>
+				<%= f.button :submit %>
+				<% end %>
+			<a style='float:left' href="/products">Back</a>
+			<% if flash[:errors] %>
+				<% flash[:errors].each do |error| %>
+					<p> <%= error %> </p>
+				<% end %>
+			<% end %>
+		</div>
+		<div class="col-md-4">
+		</div>
+	</div>
+
+</body>
+</html>

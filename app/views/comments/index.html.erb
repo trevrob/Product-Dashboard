@@ -1,0 +1,36 @@
+<html>
+<head>
+	<title>Show Comments</title>
+</head>
+<body>
+	<div class="row">
+		<div class="col-md-1">
+		</div>
+		<div class="col-md-10">
+			<h1>Comments</h1>
+			<table class="table table-striped">
+				<thead style='background-color:lightblue'>
+					<th>Comments</th>
+					<th>Product</th>
+				</thead>
+				<tbody>
+					<% @show_comments.each do |com| %>
+						<tr>
+							<td><%= com[:comment] %></td>
+							<td>
+								<% if com.product_id %>
+									<%= Product.find(com.product_id).name %>
+								<% end %>
+							</td>
+						</tr>
+						<% end %>
+				</tbody>
+			</table>
+			<a style="float:right ; font-size: 200%"  href="/products">Back</a>
+		</div>
+		<div class="col-md-1">
+		</div>
+	</div>
+
+</body>
+</html>

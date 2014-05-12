@@ -1,0 +1,61 @@
+<html>
+<head>
+	<title>Show Product</title>
+</head>
+<body>
+	<div class="row">
+		<div class="col-md-3">
+		</div>
+		<div class="col-md-6">
+			<br>
+			<table style='font-size:200%' class="table table-bordered">
+				<thead style='background-color:lightblue'>
+					<th>Name</th>
+					<th>Description</th>
+					<th>Pricing</th>
+					<th>Category</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td><%= @show_product[:name] %></td>
+						<td><%= @show_product[:description] %></td>
+						<td>$<%= @show_product[:pricing] %>
+						<td>
+						<% if @show_product.category_id %>
+									<%= Category.find(@show_product.category_id).name %></td>
+								<% end %>
+						</td>
+				</tbody>
+					</tr>
+			</table>
+		
+			<div>
+				<%= simple_form_for([@show_product, @show_product.comments.build]) do |f| %> 
+					<%= f.input :comment, label:false %> 
+					<%= f.button :submit, {class:'btn btn-primary'} %>
+				<% end %>
+
+
+			<h3>Comments about this Product</h3>
+			<div id='com'>
+				<% @comments.each do |comment| %>
+					<p><%= comment[:comment] %>
+					<i style='font-size:75%'><%= comment[:created_at] %></i></p><br>
+				<% end %>
+			</div>
+			<br>
+			<a href="/products/<%= @show_product[:id] %>/edit">Edit</a>
+			<a style='float:right' href="/products">Back</a><br>
+		</div>
+
+		<div class="col-md-3">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+		</div>		
+	</div>
+
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<html>
+<head>
+	<title> Listing Products</title>
+</head>
+<body>
+	
+	<div class="row">
+		<div class="col-md-1">
+		</div>
+		<div class="col-md-10">
+			<h1>Listing Products</h1>
+			<a style= "float:right" href="/comments" method='patch'><input class='btn btn-primary' type="submit" value="View Comments" /></a><br><br>
+			<table class="table table-striped">
+				<thead style='background-color:lightblue'>
+					<th>Name</th>
+					<th>Description</th>
+					<th>Price</th>
+					<th>Category</th>
+					<th>Show</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</thead>
+				<tbody>
+					<% @products.each do |product| %>
+						<tr>
+							<td><%= product[:name] %></td>
+							<td><%= product[:description] %></td>
+							<td>$<%= product[:pricing] %></td>
+							<td>
+								<% if product.category_id %>
+									<%= Category.find(product.category_id).name %></td>
+								<% end %>
+							<td>
+								<a href="/products/<%= product.id %>"><input class='btn btn-success' type="submit" value="Show" /></a>
+							</td>
+							<td>
+								<a href="/products/<%= product.id %>/edit"><input class='btn btn-warning' type="submit" value="Edit" /></a>
+							</td>
+							<td>
+								<a href="products/<%= product.id %>" data-method='delete'><input class='btn btn-danger' type="submit" value="Delete" /></a>
+							</td>
+						</tr>
+						<% end %>
+				</tbody>
+			</table>
+			<a href='/products/new'><button class="btn btn-primary">New Product</button></a>
+		</div>
+		<div class="col-md-1">
+		</div>
+	</div>
+
+
+
+</body>
+</html>

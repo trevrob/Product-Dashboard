@@ -1,0 +1,30 @@
+<html>
+<head>
+	<title>Editing Product</title>
+</head>
+<body>
+	<div class="row">
+		<div class="col-md-4">
+		</div>
+		<div style='text-align:center' class="col-md-4">
+			<h1>Editing Product</h1>
+			<% if flash[:errors] %>
+				<% flash[:errors].each do |error| %>
+				<p> <%= error %> </p>
+					<% end %>
+			<% end %>
+				<%= simple_form_for @edit_product do |f| %>
+				<%= f.input :name %>
+				<%= f.input :description %>
+				<%= f.input :pricing, :hint => " USD pricing" %>
+				<%= f.association :category, :include_blank => false %>
+				<%= f.button :submit, { class: 'btn btn-primary' } %>
+				<% end %>
+		</div>
+		<div class="col-md-4">
+		</div>
+
+
+
+</body>
+</html>
